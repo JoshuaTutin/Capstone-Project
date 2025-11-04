@@ -137,6 +137,30 @@ Extend the dashboard to include national federations or demographic filters.
 
 Optionally deploy the dashboard as a web-hosted app (e.g., via Render or Hugging Face Spaces).
 
+## Project Maintenance & Evaluation
+
+To ensure the dashboard and analysis remain up-to-date and reliable:
+
+1. **Data Updates**
+   - Lichess monthly game data will be streamed from `.pgn.zst` archives.
+   - FIDE rating lists will be downloaded quarterly.
+   - New datasets will be processed using existing pipelines and stored in structured CSVs.
+
+2. **Dashboard Refresh**
+   - The Plotly Dash dashboard will be updated after each new data ingestion.
+   - Version control via GitHub ensures reproducibility of all generated plots and mappings.
+
+3. **Validation & Evaluation**
+   - Check for missing or corrupted PGN/FIDE data before processing.
+   - Recompute percentiles and mapping tables to ensure consistency with previous versions.
+   - Statistical summaries (mean, median, correlation) will be compared across versions to monitor rating inflation or changes in correlation patterns.
+
+4. **Future Enhancements**
+   - Incorporate confidence intervals for percentile-based mapping.
+   - Extend filtering options (national federations, demographics).
+   - Optionally deploy as a live web app (e.g., Render or Hugging Face Spaces) with automated updates.
+
+
 ## Reflection
 Processing multi-gigabyte chess data streams, aligning two rating ecosystems, and visualizing percentile relationships required a combination of data engineering, statistical analysis, and dashboard design skills.
 
