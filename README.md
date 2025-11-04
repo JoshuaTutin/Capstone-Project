@@ -176,4 +176,4 @@ Apply statistical modeling for rating alignment.
 
 Design interactive analytical tools that communicate insights effectively.
 
-ChatGPT also helped me a lot with the project by reccomending tools I wasn't aware of (such as jupyter_dash and chess.pgn) which I copied and pasted as imports into my code.
+AI-assisted code recommendations from ChatGPT were used for library selection and workflow design, which were implemented in the notebook.
