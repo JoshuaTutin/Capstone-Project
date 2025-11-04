@@ -17,41 +17,135 @@ Generate comparative statistical plots and percentile-based mappings between Lic
 Provide an interactive dashboard (via Plotly Dash) for exploring the rating correlations visually.
 
 ## Business Case
-Understanding win/draw/loss probabilities across rating tiers can inform:
-- Coaching and training focus by rating group.
-- Online platform matchmaking algorithms.
-- Performance benchmarks and variance modelling.
+Online chess platforms like Lichess and organizations like FIDE use separate rating systems, each with its own player population, scaling, and inflation dynamics.
+As a result, players and coaches often struggle to interpret how a Lichess rating translates to an equivalent FIDE rating — especially across Bullet, Blitz, Rapid, and Classical time controls.
+
+This project provides a data-driven mapping between the two ecosystems, allowing:
+
+Players to understand their likely FIDE-equivalent strength.
+
+Coaches to set performance benchmarks for online students.
+
+Organizers and federations to improve seeding, pairing, and qualification models.
+
+Researchers to study rating system behavior, inflation, and correlation over time.
+
+By quantifying the relationship between these rating systems, this project bridges the gap between online and over-the-board competitive chess.
 
 ## Data Management
-- Source: Public, anonymised Lichess data.
-- Cleaning: Removal of incomplete entries, normalization of ratings.
-- Storage: CSV format, structured by version control.
-- Ethics: Complies with GDPR; no identifying data used.
+Sources:
+
+Lichess.org
+ monthly public rated games dump (.pgn.zst format).
+
+FIDE Ratings Database
+ official player lists (.zip format).
+
+Cleaning & Processing:
+
+Removal of incomplete or unparseable PGN headers.
+
+Extraction of unique player ratings and classification by time control.
+
+Normalization of rating formats and percentile-based alignment between datasets.
+
+Storage & Versioning:
+
+Processed data stored in structured CSV files (e.g., lichess_fide_mapping_points.csv).
+
+Generated plots and dashboards versioned via GitHub for reproducibility.
+
+Ethics & Compliance:
+
+Only public and anonymized data is used.
+
+No personally identifiable information (PII) is collected or displayed.
+
+Fully compliant with GDPR and open data usage policies.
 
 ## Methodology
-- Data cleaning and preprocessing with Pandas.
-- Probability modelling via observed frequencies.
-- Elo theory cross-reference (expected score function).
-- Visualization with Seaborn and Streamlit dashboard.
+Data Ingestion
+
+Streamed large-scale Lichess game data directly from .zst archives using zstandard.
+
+Parsed PGN games via python-chess to extract ratings, time controls, and players.
+
+Data Aggregation
+
+Collected unique user ratings per time control (Bullet, Blitz, Rapid, Classical).
+
+Downloaded and parsed the FIDE player list, extracting Standard, Rapid, and Blitz ratings.
+
+Statistical Analysis
+
+Computed rating percentiles for both datasets to ensure consistent comparison.
+
+Merged percentiles to derive Lichess ↔ FIDE equivalence tables.
+
+Performed linear regression and correlation (Pearson r) analyses to quantify relationships.
+
+Visualization & Dashboarding
+
+Generated Seaborn plots for rating distributions (histograms and boxplots).
+
+Built an interactive Plotly Dash dashboard for exploring mappings dynamically within Jupyter.
 
 ## Results
-Lower-rated players’ win probability declines exponentially with rating difference — confirming Elo’s non-linear scaling. Draws remain proportionally stable up to ~400 points, suggesting competitive balance in mid-tier matchups.
+Strong positive correlation between Lichess and FIDE ratings (r ≈ 0.9 across time controls).
+
+Systematic rating inflation observed on Lichess — approximately +100–200 Elo above FIDE equivalents for mid-range players.
+
+Rapid and Classical controls exhibit the highest consistency between systems.
+
+Percentile mapping provides an accurate conversion framework for estimating FIDE ratings from online performance.
 
 ## Ethical Considerations
-- All data is anonymised.
-- No individual identity exposed.
-- Findings are presented objectively, avoiding bias or value judgment.
+All analyses use public, aggregated data — no individual-level tracking or identification.
+
+Results are statistical approximations, not deterministic conversions.
+
+The study avoids subjective evaluation of player skill or platform quality.
+
+Findings are intended for educational, analytical, and research purposes only.
+
 
 ## Technologies Used
-Python, Pandas, Numpy, Matplotlib, Seaborn, Streamlit, Git
+Category	Tools / Libraries
+Data Handling	Python, Pandas, NumPy
+Statistical Analysis	SciPy, Pearson Correlation, Linear Regression
+Visualization	Matplotlib, Seaborn, Plotly
+Dashboard	JupyterDash, Dash Bootstrap Components
+Data Sources	Lichess .pgn.zst, FIDE .zip archives
+Utilities	python-chess, zstandard, requests
 
 ## Version Control
-Each feature and update is committed separately in GitHub with clear commit messages (e.g., “Added rating difference probability calculation”).
+The project follows modular version control via GitHub.
+
+Each major addition — data cleaning, visualization, percentile mapping, dashboard — is committed separately with descriptive messages (e.g.,
+"Added FIDE–Lichess percentile correlation analysis").
+
+All generated datasets and plots are reproducible from the main script.
 
 ## Future Development
-- Add Stockfish accuracy integration.
-- Include live rating updates via API.
-- Deploy Streamlit dashboard online.
+Integrate live Lichess API data for real-time rating updates.
+
+Add historical trend tracking across multiple monthly datasets.
+
+Implement confidence intervals around percentile-based mapping.
+
+Extend the dashboard to include national federations or demographic filters.
+
+Optionally deploy the dashboard as a web-hosted app (e.g., via Render or Hugging Face Spaces).
 
 ## Reflection
-Challenges included large dataset cleaning and real-time probability computation. Adapted new methods (Streamlit caching, modular plotting). This project improved my ability to apply data science for real analytical insight.
+Processing multi-gigabyte chess data streams, aligning two rating ecosystems, and visualizing percentile relationships required a combination of data engineering, statistical analysis, and dashboard design skills.
+
+This project demonstrated how open data can be transformed into actionable insight — bridging the gap between online analytics and real-world competitive benchmarks.
+
+Through this work, I enhanced my ability to:
+
+Handle large-scale streaming datasets.
+
+Apply statistical modeling for rating alignment.
+
+Design interactive analytical tools that communicate insights effectively.
