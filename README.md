@@ -159,6 +159,7 @@ To ensure the dashboard and analysis remain up-to-date and reliable:
    - Incorporate confidence intervals for percentile-based mapping.
    - Extend filtering options (national federations, demographics).
    - Optionally deploy as a live web app (e.g., Render or Hugging Face Spaces) with automated updates.
+   - Bonus: If this was a hobby without deadlines rather than an assigned project where the main objective for me is to achieve a pass mark, I'd also try and analyse how reliable the current ELO system is by calculating probabilities using the ELO formula to estimate the chance of one player beating, drawing or losing to another given the formula (and their ratings) then compare it to empirical data using hypothesis tests and possibly use maching learning to try and guess ELO of players using machine learning given win/loss data with recent similar opponents then assess how good the model is. If the model was good, I'd then try and estimate the sample size of number of games needed to test such a thing reliably. I'd also try and use empirical data to see if there was a way to potentially improve the ELO calculation itself since some of the data collected in the graphs appears skewed rather than symmetrical also.
 
 
 ## Reflection
