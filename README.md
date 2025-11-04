@@ -1,9 +1,20 @@
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-# ♟️ Chess ratings comparisons Dashboard
+# 🧠 Lichess + FIDE Ratings Analysis + Interactive Dashboard
+An end-to-end data analysis and visualization project that streams real Lichess game data, processes FIDE player rating data, and builds an interactive dashboard for exploring the relationship between Lichess and FIDE ratings across different time controls.
 
-## Overview
-This project compares ratings between lichess ratings and FIDE ratings for different time controls.
+## Project overview
+This project aims to:
+
+Download and parse a large Lichess rated games dataset (compressed .zst PGN format).
+
+Collect and analyze unique player ratings across time controls: bullet, blitz, rapid, and classical.
+
+Download and process FIDE official rating lists (Standard, Rapid, Blitz).
+
+Generate comparative statistical plots and percentile-based mappings between Lichess and FIDE ratings.
+
+Provide an interactive dashboard (via Plotly Dash) for exploring the rating correlations visually.
 
 ## Business Case
 Understanding win/draw/loss probabilities across rating tiers can inform:
