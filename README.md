@@ -1,9 +1,9 @@
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-# ♟️ Chess Performance Analytics Dashboard
+# ♟️ Chess ratings comparisons Dashboard
 
 ## Overview
-This project explores how player rating differences influence game outcomes using real Lichess data. It applies probability, data analysis, and visualization principles to uncover how the Elo model translates to real-world results.
+This project compares ratings between lichess ratings and FIDE ratings for different time controls.
 
 ## Business Case
 Understanding win/draw/loss probabilities across rating tiers can inform:
