@@ -4,8 +4,8 @@ pandas
 matplotlib
 seaborn
 plotly
-scipy
 requests
 chess
 zstandard
 dash-bootstrap-components
+
