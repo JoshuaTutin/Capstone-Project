@@ -2,7 +2,7 @@
 
 # 🧠 Lichess + FIDE Ratings Analysis + Interactive Dashboard
 An end-to-end data analysis and visualization project that streams real Lichess game data, processes FIDE player rating data, and builds an interactive dashboard for exploring the relationship between Lichess and FIDE ratings across different time controls.
-
+Dashboard found here: https://appdashboardchessratingcomparisonpy-edf7kgxlbatm2cdr6v6d8v.streamlit.app/
 ## Project overview
 This project aims to:
 
