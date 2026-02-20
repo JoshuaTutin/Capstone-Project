@@ -150,6 +150,7 @@ To ensure the dashboard and analysis remain up-to-date and reliable:
 2. **Dashboard Refresh**
    - The Plotly Dash dashboard will be updated after each new data ingestion.
    - Version control via GitHub ensures reproducibility of all generated plots and mappings.
+   - Future note: Streamlit also has a dashboard created and for that the data was collected in Notebook_Template.ipynb then sent to streamlit in another python notebook where data collected in Notebook_Template.ipynb was copied and pasted manually due to technical difficulties.
 
 3. **Validation & Evaluation**
    - Check for missing or corrupted PGN/FIDE data before processing.
